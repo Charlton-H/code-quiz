@@ -1,0 +1,87 @@
+header {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+#scores {
+  color: rgb(205, 0, 255);
+  text-align: left;
+  flex: 4;
+}
+
+#timer {
+  color: black;
+  text-align: right;
+  flex: 1;
+}
+
+#form {
+  margin: 20px;
+  padding: 0px 20px;
+  height: auto;
+  align-items: center;
+  text-align: center;
+  /* border-style: solid; */
+  display: flex;
+  flex-direction: column;
+}
+
+#btn {
+  border: solid;
+  align-content: center;
+  background-color: #2db2ff;
+  padding: 5px 10px;
+  border-radius: 15px;
+  max-width: 200px;
+  justify-content: center;
+}
+
+.welcome {
+  margin-bottom: 20px;
+}
+
+#question {
+  margin-bottom: 20px;
+}
+
+.answers {
+  width: fit-content;
+  /* justify-content: center; */
+  padding-top: 25px;
+}
+
+.answer-li {
+  border: solid;
+  align-content: center;
+  background-color: #2db2ff;
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+
+#name-input {
+  padding: 10px;
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+.submit-btn {
+  padding: 10px;
+  border: solid;
+  align-content: center;
+  background-color: green;
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+
+.reset-btn {
+  padding: 10px;
+  border: solid;
+  align-content: center;
+  color: white;
+  background-color: purple;
+  border-radius: 15px;
+  padding: 5px 10px;
+}
