@@ -6,6 +6,10 @@ var buttonEl = document.getElementById("btn");
 buttonEl.addEventListener("click", countdown);
 formEl.addEventListener("click", questionEventHandler);
 
+$("#scores").click(function () {
+  startScreenScores();
+});
+
 var questionIndex = 0;
 var timeLeft = 60;
 var isComplete = false;
@@ -219,7 +223,7 @@ function loadScores() {
 }
 
 function showScores() {
-  var list = document.getElementsByClassName("hs-list");
+  var list = document.querySelector(".hs-list");
 
   for (var i = 0; i < highScores.length; i++) {
     var highScoresListItemEl = document.createElement("li");
@@ -229,7 +233,7 @@ function showScores() {
       highScores[i].player +
       ", Score: " +
       highScores[i].highScores;
-    formEl.appendChild(highScoresListItemEl);
+    list.appendChild(highScoresListItemEl);
   }
 
   var submitElBtn = document.querySelector("#submit-btn");
@@ -237,6 +241,31 @@ function showScores() {
   submitElBtn.textContent = "Restart Quiz";
   submitElBtn.className = "reset-btn";
   submitElBtn.addEventListener("click", playAgain);
+}
+
+function startScreenScores() {
+  var list = document.getElementsByClassName("hs-list")[0]; // returns HTML collection
+
+  if (list) {
+    list.remove();
+  } else {
+    var highScoresList = document.createElement("ul");
+    highScoresList.className = "hs-list";
+    formEl.appendChild(highScoresList);
+
+    var loadedScores = loadScores();
+
+    for (var i = 0; i < loadedScores.length; i++) {
+      var highScoresListItemEl = document.createElement("li");
+      highScoresListItemEl.className = "hs-item";
+      highScoresListItemEl.textContent =
+        "Player Name: " +
+        loadedScores[i].player +
+        ", Score: " +
+        loadedScores[i].highScores;
+      highScoresList.appendChild(highScoresListItemEl);
+    }
+  }
 }
 
 function playAgain() {
