@@ -10,7 +10,7 @@ $("#scores").click(function () {
   startScreenScores();
 });
 
-var questionIndex = 0;
+var questionIndex = -1;
 var timeLeft = 60;
 var isComplete = false;
 var highScores = [];
@@ -78,6 +78,7 @@ function countdown() {
 
 // display question one at a time
 function nextQuestion() {
+  questionIndex++;
   formEl.innerHTML = "";
 
   // while loop to clear form div
@@ -89,7 +90,7 @@ function nextQuestion() {
   // access to data array at appropriate index
   var qDataObj = questionsArr[qId];
 
-  // create question element
+  // create question element & add to form element
   var questionEl = document.createElement("h2");
   questionEl.className = "question";
   questionEl.textContent = qDataObj.question;
@@ -116,7 +117,7 @@ function nextQuestion() {
 
   formEl.appendChild(answersListEl);
 
-  questionIndex++;
+  // debugger;
 }
 
 // question event handler
@@ -125,8 +126,9 @@ function questionEventHandler(event) {
 
   if (isAnswer) {
     var selectAnswerEl = event.target;
-    console.log(selectAnswerEl.dataset.id);
-    console.log(questionsArr[questionIndex].correctAnswer);
+    console.log("my selection: ", selectAnswerEl.dataset.id);
+    console.log("supposed answer: ", questionsArr[questionIndex].correctAnswer);
+
     var isCorrect =
       questionsArr[questionIndex].correctAnswer ===
       parseInt(selectAnswerEl.dataset.id);
