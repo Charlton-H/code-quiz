@@ -22,7 +22,7 @@ var questionsArr = [
     question:
       " ______ tag is an extension to HTML that can enclose any number of JavaScript statements.",
     answers: ["<SCRIPT>", "<BODY>", "<HEAD>", "<TITLE>"],
-    correctAnswer: 1,
+    correctAnswer: 0,
   },
   {
     question:
