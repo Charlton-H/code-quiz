@@ -19,52 +19,39 @@ var playerName = "";
 // array of questions
 var questionsArr = [
   {
-    question:
-      " ______ tag is an extension to HTML that can enclose any number of JavaScript statements.",
-    answers: ["<SCRIPT>", "<BODY>", "<HEAD>", "<TITLE>"],
-    correctAnswer: 0,
-  },
-  {
-    question:
-      "Using _______ statement is how you test for a specific condition.",
-    answers: ["Select", "If", "For", "While"],
+    question: "Which is not valid data type in Javascript?",
+    answers: ["Undefinded", "Boolean", "float", "Number"],
     correctAnswer: 2,
   },
   {
-    question: "Which type of JavaScript language is ___",
-    answers: [
-      "Object-Oriented",
-      "Object-Based",
-      "Assembly-language",
-      "High-level",
-    ],
-    correctAnswer: 2,
-  },
-  {
-    question:
-      "var x=5,y=1  " +
-      "var obj ={x:10}  " +
-      "with(obj)  " +
-      "{  " +
-      "      alert(y)  " +
-      "}",
-    answers: ["1", "Error", "10", "5"],
+    question: "Which type of language is Javascript?",
+    answers: ["Programming", "Scripting", "Markup", "None of the above"],
     correctAnswer: 1,
   },
   {
-    question: "The 'function' and 'var' are known as:",
-    answers: ["Keywords", "Data types", "Declaration statements", "Prototypes"],
-    correctAnswer: 3,
+    question: "By which javascript code is used?",
+    answers: ["Classes", "Methods/Functions", "RMI", "Events"],
+    correctAnswer: 1,
+  },
+  {
+    question: "Which tag is used to write the javascript code?",
+    answers: ["<script>", "<sp>", "<head>", "<javascript>"],
+    correctAnswer: 0,
+  },
+  {
+    question: "Why so JavaScript and Java have similar name?",
+    answers: [
+      "They both originated on the island of Java",
+      "JavaScript's syntax is loosely based on Java's",
+      "Both A and B",
+      "None of the above",
+    ],
+    correctAnswer: 1,
   },
   {
     question:
-      "Which of the following variables takes precedence over the others if the names are the same?",
-    answers: [
-      "Global variable",
-      "The local element",
-      "The two of the above",
-      "None of the above",
-    ],
+      "Which of the following function of Array object removes the last element from an array and returns that element?",
+    answers: ["push()", "delete()", "pop()", "link()"],
     correctAnswer: 2,
   },
 ];
@@ -91,8 +78,6 @@ function countdown() {
 
 // display question one at a time
 function nextQuestion() {
-  // question counter
-  // questionIndex++;
   formEl.innerHTML = "";
 
   // while loop to clear form div
@@ -100,16 +85,16 @@ function nextQuestion() {
   //   formEl.removeChild(formEl.firstChild);
   // }
 
-  var questionEl = document.createElement("h2");
-  questionEl.className = "question";
-  questionEl.textContent = questionsArr[questionIndex].question;
-  formEl.appendChild(questionEl);
-
   var qId = questionIndex;
+  // access to data array at appropriate index
   var qDataObj = questionsArr[qId];
 
-  // access to data array at appropriate index
-  var qDataObj = questionsArr[questionIndex];
+  // create question element
+  var questionEl = document.createElement("h2");
+  questionEl.className = "question";
+  questionEl.textContent = qDataObj.question;
+  formEl.appendChild(questionEl);
+
   // create ul element
   var answersListEl = document.createElement("ul");
   answersListEl.className = "answers"; //css styling
@@ -140,8 +125,8 @@ function questionEventHandler(event) {
 
   if (isAnswer) {
     var selectAnswerEl = event.target;
-    // console.log(selectAnswerEl.dataset.id);
-    // console.log(questionsArr[questionIndex].correctAnswer);
+    console.log(selectAnswerEl.dataset.id);
+    console.log(questionsArr[questionIndex].correctAnswer);
     var isCorrect =
       questionsArr[questionIndex].correctAnswer ===
       parseInt(selectAnswerEl.dataset.id);
