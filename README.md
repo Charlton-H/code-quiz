@@ -6,7 +6,7 @@ Code quiz was created for the intended purposes of testing a user's javascript s
 
 Code quiz is an application for users to test their knowledge of javascript
 
-![demo](assets/images/preview-demo.png)
+![demo](./assets/images/preview-demo.png)
 
 ## Website
 
